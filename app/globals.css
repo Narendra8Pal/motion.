@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MODAL */
+.darkBG {
+  background-color: rgb(255, 255, 255);
+  opacity: 0.2;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.modal {
+  height: auto;
+  width: 70vh;
+  /* background-color: #1c1b19; */
+  background-color: #1d1e23;
+  color: white;
+  z-index: 0;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  padding: 20px;
+}
+
+.modalHeader {
+  height: 50px;
+  font-weight: bold;
+  /* background-color: #1c1b19; */
+  background-color: #1d1e23;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.closeBtn {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  color: #2c3e50;
+  background: white;
+  margin-right: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  &:hover {
+    opacity: 0.8;
+    transition: all 0.25s ease;
+  }
+}
+
+.modalContent {
+  /* background-color: #1c1b19; */
+  background-color: #1d1e23;
+}
+
+.title {
+  /* background-color: #1c1b19; */
+  background-color: #1d1e23;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+input {
+  background-color: #1c1b19;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  outline: 2px solid white;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #1abdd6;
+}
+
+.desc-container {
+  padding-top: 10px;
+}
+
+.description {
+  margin-bottom: 8px;
+}
+
+textarea {
+  /* background-color: #1c1b19; */
+  background-color: #1d1e23;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  outline: 2px solid white;
+}
+
+.submit {
+  margin-top: 8px;
+  display: flex;
+}
+
+.submit button {
+  margin-left: auto;
+}
+
+/* MODAL END */
+
+.icons {
+  display: flex;
+  height: 15px;
+  cursor: pointer;
+}
+
+.icons-alone{
+  opacity: 0.8;
+  &:hover{
+    opacity: 1;
+  }  
+}
+
+.list-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 8px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+body {
+  background: rgb(0, 51, 48);
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 55, 62, 1) 32%,
+    rgba(0, 38, 36, 1) 64%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+
+.text-gradient {
+  color: #256163;
+  background-image: -webkit-linear-gradient(45deg, #256163 0%, #1abdd6 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100vh;
+  background-color: #1d1e23;
+  transition: right 0.6s ease-in-out;
+  overflow: auto;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  z-index: 999;
+}
+
+
+@layer utilities {
+  .gradients {
+    @apply bg-gradient-to-r from-gradients-1 to-gradients-2;
+  }
+
+  .btn {
+    @apply px-4 py-3 font-semibold text-white rounded-lg shadow-sm shadow-slate-900 hover:opacity-80 gradients hover:transition-opacity;
+  }
+
+  .btn-home {
+    @apply px-4 py-3 text-base font-bold bg-white rounded-lg shadow-md text-gradients-1 hover:opacity-80 hover:transition-opacity ;
+  }
+
+  .projects-icons {
+    @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 opacity-70 hover:opacity-100;
+  }
+
+  .kanban-icons {
+    @apply delay-100 hover:transition-opacity opacity-70 hover:opacity-100;
+  }
+
+  .nav {
+    @apply flex items-center justify-between p-4;
+  }
+}
